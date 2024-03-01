@@ -15,6 +15,7 @@ public class PayDay {
 
         // create an array of TimeCards that have this weeks data in it.
         // each timeCard object contains the data for one person.
+
         TimeCard[] cards = payday.createRunData();
 
         for (TimeCard card : cards) {
@@ -35,6 +36,8 @@ public class PayDay {
     }
 
 
+
+
     /**
      * Takes four parameters:
      *   "Kris", 21.5, 10.0, 0.05
@@ -43,7 +46,10 @@ public class PayDay {
      * @return a string of the form "Kris 215.00 10.75 204.25”
      */
     public String pay(String n, double rate, double worked, double deduct) {
-        return null;
+        double grossPay = rate * worked;
+        double deduction = grossPay * deduct;
+        double netPay = grossPay - deduction;
+        return String.format("%s %.2f %.2f %.2f", n, grossPay, deduction, netPay);
     }
 
 
